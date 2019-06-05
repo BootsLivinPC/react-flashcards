@@ -20,6 +20,7 @@ render() {
     <Form.Group widths="equal">
     <Form.Input
     fluid
+    required
     label="Question"
     placeholder="Enter Question"
     name="front"
@@ -28,6 +29,7 @@ render() {
     />
     <Form.Input
     fluid
+    required
     label="Answer"
     placeholder="Enter Answer"
     name="back"
