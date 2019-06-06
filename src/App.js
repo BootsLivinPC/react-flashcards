@@ -1,56 +1,28 @@
 import React from 'react';
-import FlashCards from "./FlashCards";
-import FlashForm from "./FlashForm";
-import { Container, Header, } from "semantic-ui-react";
+import Home from "./components/Home";
+import About from "./components/About";
+import NoMatch from "./components/NoMatch";
+import Card from "./components/Card";
+import NavBar from "./components/NavBar";
+import {Route, Switch, } from "react-router-dom";
+import { Container, } from "semantic-ui-react";
 
-class App extends React.Component {
-  state = {
-   flashcards: [
-    {id: 1, front: "What is React ", back: "JS Library ... ", },
-    {id: 2, front: "Who Built React ", back: "FaceBook ", },
-    {id: 3, front: "Can you dance? ", back: "You know it!", },
-  ],
-  };
+
+const App = () => (// fragment can be <> </> without calling it in react
+  // switch statement, do these routes match? no display NoMatch.
+  <>
+  <NavBar />
+  <Container>
+    <Switch>
+     <Route exact path="/" component={Home} />
+     <Route exact path="/about" component={About} />
+     <Route exact path="/card" component={Card} />
+     <Route component={NoMatch} />
+    </Switch>
+   </Container>
+  
+   </>
+ );
  
-    getId = () => {
-      return Math.floor((1 + Math.random()) * 10000);
-    };
-
-    addCard =(cardData) => {
-      let card ={ id: this.getId(), ...cardData, };
-      this.setState({flashcards: [...this.state.flashcards, card], });
-    };
-
-    removeCard =(id) => {
-      const cards = this.state.flashcards.filter( card => {
-        if (card.id !== id)
-        return card;
-      })
-      this.setState({flashcards: cards })
-    }
-     
-      
-      
-
-render() {
-  // const { showBack, } = this.state;
-  return (
-    <Container style={{ paddingTop: "40px", }}>
-      <Header as="h1" color="teal" >React Flash Cards</Header>
-      <hr />
-      <FlashForm add={this.addCard} />
-      <hr />
-    <FlashCards 
-    flashcards={this.state.flashcards}
-    remove={this.removeCard}
-    
-    />
-
-
-    </Container>
-  );
- }
-}
-
 
 export default App;

@@ -8,7 +8,9 @@ const FlashCards = ({flashcards, remove, }) => (
     {
   flashcards.map(card => (
     <Grid.Column key={card.id}>
-      <FlashCard {...card} remove={remove}  />
+      <FlashCard {...card} 
+      remove={remove} 
+      flashcards={flashcards} />
       </Grid.Column>
       ))
       
