@@ -2,7 +2,7 @@ import React from "react";
 import {Grid, } from "semantic-ui-react";
 import FlashCard from "./FlashCard"
 
-const FlashCards = ({flashcards, remove, }) => (
+const FlashCards = ({flashcards, remove, edit }) => (
   <Grid columns={3} doubling>
   
     {
@@ -10,7 +10,10 @@ const FlashCards = ({flashcards, remove, }) => (
     <Grid.Column key={card.id}>
       <FlashCard {...card} 
       remove={remove} 
-      flashcards={flashcards} />
+      flashcards={flashcards}
+      edit={edit}
+    
+       />
       </Grid.Column>
       ))
       

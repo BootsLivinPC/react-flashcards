@@ -6,11 +6,11 @@ import { Container, Header, } from "semantic-ui-react";
 
 
 
-class Card extends React.Component {
+class Cards extends React.Component {
 state = {
   flashcards: [
-   {id: 1, front: "What is React ", back: "JS Library ... ", },
-   {id: 2, front: "Who Built React ", back: "FaceBook ", },
+   {id: 1, front: "What is React ?", back: "JS Library ... ", },
+   {id: 2, front: "Who Built React? ", back: "FaceBook ", },
    {id: 3, front: "Can you dance? ", back: "You know it!", },
  ],
  };
@@ -31,8 +31,15 @@ state = {
      })
      this.setState({flashcards: cards })
    }
-    
-     
+  
+   editCard = (postData) => {
+    const newCards = this.state.flashcards.map( cards => {
+      if (cards.id === postData.id)
+      return postData;
+      return cards;
+    });
+    this.setState({ newCards, })
+  } 
      
 
 render() {
@@ -45,11 +52,12 @@ render() {
      <hr />
     <FlashCards 
      flashcards={this.state.flashcards}
-    remove={this.removeCard}
+     remove={this.removeCard}
+     edit={this.editCard}
     />
   </Container>
   );
  }
 }
 
-export default Card;
+export default Cards;

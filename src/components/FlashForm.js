@@ -10,7 +10,12 @@ class FlashForm extends React.Component {
 
   handleSubmit = (e) => {
    e.preventDefault();
+   if (this.props.id) {
+     this.props.edit({id: this.props.id, ...this.state, })
+     this.props.toggleEdit()
+   } else {
    this.props.add(this.state);
+   };
    this.setState({ front: " ", back: " ", })
 }
 

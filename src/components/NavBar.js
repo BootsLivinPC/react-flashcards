@@ -15,9 +15,9 @@ const NavBar = () => (
      About
   </Menu.Item>
  </Link>
-  <Link to="/Card">
+  <Link to="/cards">
    <Menu.Item>
-     Card
+     Cards
   </Menu.Item>
  </Link>
 </Menu>
